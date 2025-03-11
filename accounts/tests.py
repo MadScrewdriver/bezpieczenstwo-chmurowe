@@ -1,10 +1,12 @@
 from urllib.parse import urlunparse, urlparse
 
+from django.core import mail
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
 
 from accounts.forms import UserRegistrationForm
+from bezpieczenstwo_chmurowe import settings
 
 
 class AccountsViewsTest(TestCase):
@@ -98,3 +100,23 @@ class AccountsViewsTest(TestCase):
 
         self.assertEqual(response.status_code, 302)
         self.assertEqual(redirect_url.scheme, target_url.scheme)
+
+    def test_register_email_send(self):
+        """Test if registration sends an activation email"""
+
+        response = self.client.post(self.register_url, {
+            'username': 'newuser',
+            'password': 'testpassword123',
+            'password2': 'testpassword123',
+            'email': 'newuser@example.com'
+        })
+
+        user = User.objects.get(username='newuser')
+        self.assertFalse(user.is_active)
+        self.assertEqual(len(mail.outbox), 1)
+
+        email = mail.outbox[0]
+        self.assertEqual(email.subject, "Aktywuj swoje konto")
+        self.assertIn('newuser@example.com', email.to)
+        self.assertIn(settings.BASE_URL, email.body)
+        self.assertIn(str(user.pk), email.body)
