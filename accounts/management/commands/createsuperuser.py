@@ -28,9 +28,11 @@ class Command(BaseCommand):
         try:
             user, created = user_model.objects.get_or_create(email=email, defaults={
                 "username": email,
-                "is_staff": True,
-                "is_superuser": True
             })
+
+            user.is_staff = True
+            user.is_superuser = True
+            user.is_active = True
 
             user.set_unusable_password()
             user.save()
@@ -46,5 +48,5 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.WARNING(f"{email} is already linked to Google OAuth."))
 
         except IntegrityError:
-            raise CommandError("Error creating user. The email may already be taken.")
+            raise CommandError("Error creating user")
 

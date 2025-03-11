@@ -9,6 +9,10 @@
 {% block content %}
   <h1>{% block title %}{% trans "Login" %}{% endblock %}</h1>
 
+  <div class="alert alert-success" role="alert">
+    {% trans "Logowanie możliwe po potwierdzeniu adresu e-mail" %}
+  </div>
+
   {% if wizard.steps.current == 'auth' %}
     <p>{% blocktrans %}Enter your credentials.{% endblocktrans %}</p>
   {% elif wizard.steps.current == 'token' %}

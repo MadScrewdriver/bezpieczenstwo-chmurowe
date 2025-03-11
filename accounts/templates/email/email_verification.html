@@ -1,0 +1,7 @@
+Cześć {{ user.username }},
+
+Kliknij w poniższy link, aby aktywować swoje konto:
+
+{{ BASE_URL }}{% url 'activate' uid=uid token=token %}
+
+Jeśli to nie Ty się rejestrowałeś, zignoruj tę wiadomość.
