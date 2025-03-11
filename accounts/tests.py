@@ -101,7 +101,7 @@ class AccountsViewsTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(redirect_url.scheme, target_url.scheme)
 
-    def test_register_email_send(self):
+    def test_register_view_email_send(self):
         """Test wysłania emaila aktywacyjnego po rejestracji"""
 
         response = self.client.post(self.register_url, {
