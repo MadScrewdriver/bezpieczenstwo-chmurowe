@@ -15,11 +15,9 @@
 - **Logowanie do panelu administracyjnego** wyłącznie przez Google OAuth.
 - **Rejestracja** i **logowanie lokalne** użytkowników.
 - **2FA (dwuskładnikowe uwierzytelnianie)** dla kont lokalnych.
-- **Proste szablony Django** dla formularzy logowania i rejestracji.
-- **Generowanie dokumentacji** przy użyciu Sphinx.
 
 ## Wymagania
-- Python 3.12
+- Python 3.13+
 
 
 ## Instalacja
