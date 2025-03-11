@@ -6,11 +6,9 @@
 - [Funkcjonalności](#funkcjonalności)
 - [Wymagania](#wymagania)
 - [Instalacja](#instalacja)
-- [Konfiguracja Google OAuth](#konfiguracja-google-oauth)
+- [Zmienne środowiskowe (`.env`) do uzupelnienia](#zmienne-środowiskowe-env-do-uzupelnienia)
 - [Uruchomienie](#uruchomienie)
-- [Użytkowanie](#użytkowanie)
 - [Generowanie dokumentacji (Sphinx)](#generowanie-dokumentacji-sphinx)
-- [Struktura projektu](#struktura-projektu)
 - [Licencja](#licencja)
 
 ## Funkcjonalności
@@ -34,7 +32,7 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-## Zmienne środowiskowe (`.env`) do wypełnienia
+## Zmienne środowiskowe (`.env`) do uzupelnienia
 ```bash
 SECRET_KEY= # klucz tajny Django
 DEBUG= # True/False
