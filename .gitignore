@@ -1,0 +1,10 @@
+/.env
+/.venv
+/__pycache__
+/.idea
+/static
+/templates
+/docs/_build/
+/docs/_static/
+/docs/_templates/
+/db.sqlite3
