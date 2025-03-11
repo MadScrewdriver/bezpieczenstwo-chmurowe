@@ -1,11 +1,10 @@
-from urllib.parse import urlunparse, urlparse
+from urllib.parse import urlparse
 
+from django.contrib.auth.models import User
 from django.core import mail
 from django.test import TestCase, Client
 from django.urls import reverse
-from django.contrib.auth.models import User
 
-from accounts.forms import UserRegistrationForm
 from bezpieczenstwo_chmurowe import settings
 
 
@@ -19,31 +18,21 @@ class AccountsViewsTest(TestCase):
         self.user_home_url = reverse('home')
         self.admin_login_url = reverse('social:begin', args=['google-oauth2'])
 
-        self.user = User.objects.create_user(
-            username='testuser',
-            password='testpassword123'
-        )
+        self.user = User.objects.create_user(username='testuser', password='testpassword123')
 
     def test_register_view_success(self):
         """Test poprawnej rejestracji użytkownika"""
 
-        response = self.client.post(self.register_url, {
-            'username': 'newuser',
-            'password': 'testpassword123@#',
-            'password2': 'testpassword123@#',
-            'email': 'newuser@example.com',
-        })
+        response = self.client.post(self.register_url, {'username': 'newuser', 'password': 'testpassword123@#',
+            'password2': 'testpassword123@#', 'email': 'newuser@example.com', })
         self.assertEqual(response.status_code, 302)
         self.assertTrue(User.objects.filter(username='newuser').exists())
 
     def test_register_view_invalid(self):
         """Test rejestracji z błędnymi danymi"""
 
-        response = self.client.post(self.register_url, {
-            'username': '',
-            'password': 'testpassword123',
-            'password2': 'wrongpassword',
-        })
+        response = self.client.post(self.register_url,
+                                    {'username': '', 'password': 'testpassword123', 'password2': 'wrongpassword', })
         self.assertEqual(response.status_code, 200)
         self.assertFalse(User.objects.filter(username='').exists())
 
@@ -73,21 +62,12 @@ class AccountsViewsTest(TestCase):
     def test_register_view_password_validation(self):
         """Test walidacji hasła podczas rejestracji"""
 
-        weak_passwords = [
-            '123456',
-            'password',
-            'testuser123',
-            '123456789',
-        ]
+        weak_passwords = ['123456', 'password', 'testuser123', '123456789', ]
 
         for weak_password in weak_passwords:
             with self.subTest(password=weak_password):
-                response = self.client.post(self.register_url, {
-                    'username': 'testuser2',
-                    'password1': weak_password,
-                    'password2': weak_password,
-                    'email': 'testuser2@example.com',
-                })
+                response = self.client.post(self.register_url, {'username': 'testuser2', 'password1': weak_password,
+                    'password2': weak_password, 'email': 'testuser2@example.com', })
                 self.assertEqual(response.status_code, 200)
                 self.assertFalse(User.objects.filter(username='testuser2').exists())
 
@@ -104,12 +84,8 @@ class AccountsViewsTest(TestCase):
     def test_register_view_email_send(self):
         """Test wysłania emaila aktywacyjnego po rejestracji"""
 
-        response = self.client.post(self.register_url, {
-            'username': 'newuser',
-            'password': 'testpassword123',
-            'password2': 'testpassword123',
-            'email': 'newuser@example.com'
-        })
+        response = self.client.post(self.register_url, {'username': 'newuser', 'password': 'testpassword123',
+            'password2': 'testpassword123', 'email': 'newuser@example.com'})
 
         user = User.objects.get(username='newuser')
         self.assertFalse(user.is_active)

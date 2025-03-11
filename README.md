@@ -6,6 +6,8 @@
 - [Funkcjonalności](#funkcjonalności)
 - [Wymagania](#wymagania)
 - [Instalacja](#instalacja)
+- [Testy](#testy)
+- [Tworzenie superużytkownika](#tworzenie-superużytkownika)
 - [Zmienne środowiskowe (`.env`) do uzupelnienia](#zmienne-środowiskowe-env-do-uzupelnienia)
 - [Uruchomienie](#uruchomienie)
 - [Generowanie dokumentacji (Sphinx)](#generowanie-dokumentacji-sphinx)
@@ -28,6 +30,16 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python manage.py migrate
+```
+
+## Testy
+```bash
+  python manage.py test
+```
+
+## Tworzenie superużytkownika
+```bash
+  python manage.py createsuperuser
 ```
 
 ## Zmienne środowiskowe (`.env`) do uzupelnienia
