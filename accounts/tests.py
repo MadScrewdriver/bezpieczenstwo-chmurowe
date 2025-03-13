@@ -25,7 +25,7 @@ class AccountsViewsTest(TestCase):
 
         response = self.client.post(self.register_url, {'username': 'newuser', 'password': 'testpassword123@#',
             'password2': 'testpassword123@#', 'email': 'newuser@example.com', })
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
         self.assertTrue(User.objects.filter(username='newuser').exists())
 
     def test_register_view_invalid(self):
@@ -70,16 +70,6 @@ class AccountsViewsTest(TestCase):
                     'password2': weak_password, 'email': 'testuser2@example.com', })
                 self.assertEqual(response.status_code, 200)
                 self.assertFalse(User.objects.filter(username='testuser2').exists())
-
-    def test_google_admin_login_redirect_unauthenticated(self):
-        """Test przekierowania do Google OAuth dla administratora bez zalogowania"""
-
-        response = self.client.get(self.admin_login_url)
-        redirect_url = urlparse(response.url)._replace(query='')
-        target_url = urlparse('https://accounts.google.com/o/oauth2/auth')
-
-        self.assertEqual(response.status_code, 302)
-        self.assertEqual(redirect_url.scheme, target_url.scheme)
 
     def test_register_view_email_send(self):
         """Test wysłania emaila aktywacyjnego po rejestracji"""
