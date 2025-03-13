@@ -12,18 +12,13 @@ from two_factor.urls import urlpatterns as tf_urls
 from accounts.views import user_home_view
 
 
-def redirect_to_admin(request):
-    if request.user.is_authenticated:
-        if request.user.is_staff and request.user.is_superuser:
-            return redirect('admin')
-        else:
-            return redirect('home')
-    return redirect('social:begin', backend='google-oauth2')
+def redirect_admin(request):
+    return redirect('two_factor:login')
 
 
 urlpatterns = [
     path('', user_home_view, name='home'),
-    path('admin/login/', redirect_to_admin, name='admin_redirect'),
+    path('admin/login/', redirect_admin, name='admin_redirect'),
     path('admin/', admin.site.urls, name='admin'),
     path('oauth/', include('social_django.urls', namespace='social')),
     path('account/', include('accounts.urls')),

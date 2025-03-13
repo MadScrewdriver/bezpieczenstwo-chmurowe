@@ -1,0 +1,6 @@
+Cześć {{ user.username }},
+
+Kliknij poniższy link, aby potwierdzić wyłączenie 2FA:
+
+{{ BASE_URL }}{% url 'disable_confirm' uid=uid token=token %}
+

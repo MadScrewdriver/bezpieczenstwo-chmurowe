@@ -52,9 +52,9 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET= # sekret OAuth Google
 
 ## Uruchomienie
 ```bash
-python manage.py runserver
+python manage.py runserver localhost:8000
 ```
-Otwórz przeglądarkę i wejdź na `http://127.0.0.1:8000/`.
+Otwórz przeglądarkę i wejdź na `http://localhost:8000`.
 
 ## Generowanie dokumentacji (Sphinx)
 ```bash

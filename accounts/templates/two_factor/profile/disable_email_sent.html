@@ -1,0 +1,11 @@
+{% extends "two_factor/_base_focus.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1>{% block title %}{% trans "Potwierdzenie akcji" %}{% endblock %}</h1>
+  <p>{% blocktrans trimmed %}Wysłaliśmy wiadomość e-mail na Twój zarejestrowany adres.
+    Sprawdź swoją skrzynkę odbiorczą i kliknij w link potwierdzający, aby dokończyć proces.{% endblocktrans %}</p>
+  <p>{% blocktrans %}Jeśli nie otrzymałeś wiadomości, sprawdź folder spam lub spróbuj ponownie później.{% endblocktrans %}</p>
+
+  <a href="{% url 'two_factor:profile' %}" class="btn btn-primary">{% trans "Powrót do profilu konta" %}</a>
+{% endblock %}

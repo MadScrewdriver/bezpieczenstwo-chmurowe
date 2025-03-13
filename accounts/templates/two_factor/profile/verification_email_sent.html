@@ -1,0 +1,11 @@
+{% extends "two_factor/_base_focus.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h1>{% trans "Potwierdź adres e-mail" %}</h1>
+  <p>{% blocktrans trimmed %}Wysłaliśmy wiadomość e-mail z linkiem aktywacyjnym na adres <strong>{{ email }}</strong>.
+    Sprawdź swoją skrzynkę odbiorczą i kliknij w link, aby aktywować konto.{% endblocktrans %}</p>
+  <p>{% blocktrans %}Jeśli nie otrzymałeś wiadomości, sprawdź folder spam lub spróbuj ponownie później.{% endblocktrans %}</p>
+
+  <a href="{% url 'two_factor:login' %}" class="btn btn-primary">{% trans "Przejdź do strony logowania" %}</a>
+{% endblock %}
