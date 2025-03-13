@@ -1,26 +1,7 @@
 # Bezpieczeństwo Chmurowe
 
-**Bezpieczeństwo Chmurowe** to aplikacja Django zapewniająca bezpieczne uwierzytelnianie użytkowników, w tym logowanie do panelu administracyjnego wyłącznie przez Google OAuth. Lokalni użytkownicy mogą się rejestrować i logować przez formularz z obsługą dwuskładnikowego uwierzytelniania (2FA).
-
-## Spis treści
-- [Funkcjonalności](#funkcjonalności)
-- [Wymagania](#wymagania)
-- [Instalacja](#instalacja)
-- [Testy](#testy)
-- [Tworzenie superużytkownika](#tworzenie-superużytkownika)
-- [Zmienne środowiskowe (`.env`) do uzupelnienia](#zmienne-środowiskowe-env-do-uzupelnienia)
-- [Uruchomienie](#uruchomienie)
-- [Generowanie dokumentacji (Sphinx)](#generowanie-dokumentacji-sphinx)
-- [Licencja](#licencja)
-
-## Funkcjonalności
-- **Logowanie do panelu administracyjnego** wyłącznie przez Google OAuth.
-- **Rejestracja** i **logowanie lokalne** użytkowników.
-- **2FA (dwuskładnikowe uwierzytelnianie)** dla kont lokalnych.
-
-## Wymagania
+**Bezpieczeństwo Chmurowe** to aplikacja Django zbudowana pod audyt bezpieczeństwa chmurowego. 
 - Python 3.13+
-
 
 ## Instalacja
 ```bash
