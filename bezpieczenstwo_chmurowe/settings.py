@@ -105,6 +105,10 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+  'locale': 'pl_PL',
+  'fields': 'email'
+}
 
 SOCIAL_AUTH_FACEBOOK_KEY = os.getenv("SOCIAL_AUTH_FACEBOOK_KEY")
 SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv("SOCIAL_AUTH_FACEBOOK_SECRET")
@@ -125,7 +129,7 @@ SOCIAL_AUTH_NEW_ASSOCIATION_REDIRECT_URL = '/admin/'
 
 SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.social_details',
-    'social_core.pipeline.social_auth.social_uid',
+    'accounts.pipeline.social_uid',
     'social_core.pipeline.social_auth.auth_allowed',
     'social_core.pipeline.social_auth.social_user',
     'social_core.pipeline.user.user_details',

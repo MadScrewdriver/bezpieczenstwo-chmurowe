@@ -37,20 +37,17 @@ python manage.py migrate
   python manage.py test
 ```
 
-## Tworzenie superużytkownika
+## Tworzenie admina
 ```bash
   python manage.py createsuperuser
 ```
 
-## Zmienne środowiskowe (`.env`) do uzupelnienia
+## Stwórz plik `.env` w głównym katalogu projektu i uzupełnij go zmiennymi środowiskowymi
 ```bash
-SECRET_KEY= # klucz tajny Django
-DEBUG= # True/False
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY= # klucz OAuth Google
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET= # sekret OAuth Google
+  cp .env.example .env
 ```
 
-## Uruchomienie
+## Uruchomienie serwera (musi być localhost)
 ```bash
 python manage.py runserver localhost:8000
 ```

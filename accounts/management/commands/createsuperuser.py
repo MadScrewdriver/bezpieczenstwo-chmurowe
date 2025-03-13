@@ -38,14 +38,21 @@ class Command(BaseCommand):
             user.save()
             self.stdout.write(self.style.SUCCESS(f"Admin user created: {email}"))
 
-            social_auth, created = UserSocialAuth.objects.get_or_create(
+            UserSocialAuth.objects.get_or_create(
                 user=user, provider='google-oauth2', defaults={"uid": email}
             )
 
-            if created:
-                self.stdout.write(self.style.SUCCESS(f"Linked {email} to Google OAuth."))
-            else:
-                self.stdout.write(self.style.WARNING(f"{email} is already linked to Google OAuth."))
+            UserSocialAuth.objects.get_or_create(
+                user=user, provider='microsoft-graph', defaults={"uid": email}
+            )
+
+            UserSocialAuth.objects.get_or_create(
+                user=user, provider='facebook', defaults={"uid": email}
+            )
+
+            self.stdout.write(self.style.SUCCESS(
+                f"Linked {email} to Google OAuth2, Microsoft Graph, and Facebook OAuth2"
+            ))
 
         except IntegrityError:
             raise CommandError("Error creating user")
