@@ -1,8 +1,19 @@
 """
-Plik settings.py – główna konfiguracja aplikacji Django.
-Zawiera konfigurację dla social-auth (Google), django-two-factor-auth,
-oraz inne niezbędne ustawienia.
+.. module:: bezpieczenstwo_chmurowe.settings
+   :platform: Unix, Windows
+   :synopsis: Konfiguracja główna Django dla projektu ``bezpieczenstwo_chmurowe``.
+
+Plik zawiera konfigurację projektu Django, w tym:
+
+- ustawienia środowiskowe z pliku `.env`,
+- ścieżki do aplikacji i middleware,
+- integrację z systemem uwierzytelniania społecznościowego (Google, Microsoft, Facebook),
+- konfigurację django-two-factor-auth,
+- ustawienia poczty, baz danych i statycznych plików.
+
+Zmienne środowiskowe pobierane są przy użyciu `python-dotenv`.
 """
+
 import os
 from pathlib import Path
 
