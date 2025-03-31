@@ -147,6 +147,7 @@ SOCIAL_AUTH_PIPELINE = (
     'accounts.pipeline.verify_staff_status',
 )
 
+STATIC_ROOT = BASE_DIR / 'static'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
