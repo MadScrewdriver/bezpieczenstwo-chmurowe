@@ -22,7 +22,8 @@
     <form action="" method="post">
         {% block main_form_content %}
             {% csrf_token %}
-            {% include "two_factor/_wizard_forms.html" %}
+            {{ wizard.management_form }}
+            {{ wizard.form.as_table }}
 
             <input type="submit" value="" hidden/>
 
@@ -47,6 +48,8 @@
             <div class="backup_tokens_form">
                 <form action="" method="post">
                     {% csrf_token %}
+                    {{ wizard.management_form }}
+
                     <p>{% trans "As a last resort, you can use a backup token:" %}</p>
                     <p>
                         <button name="wizard_goto_step" type="submit" value="backup"
