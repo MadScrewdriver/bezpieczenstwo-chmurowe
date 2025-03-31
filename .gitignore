@@ -8,3 +8,4 @@
 /docs/_static/
 /docs/_templates/
 /db.sqlite3
+__pycache__
