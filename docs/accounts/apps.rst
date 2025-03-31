@@ -1,4 +1,4 @@
-apps.py
+accounts/apps.py
 ===============================
 
 .. currentmodule:: accounts.apps

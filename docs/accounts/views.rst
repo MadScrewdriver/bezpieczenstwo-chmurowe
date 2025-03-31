@@ -1,4 +1,4 @@
-views.py
+accounts/views.py
 ======
 
 .. currentmodule:: accounts.views

@@ -23,11 +23,25 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.imgmath',
-    'sphinx.ext.intersphinx'
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.napoleon'
 ]
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+
+latex_elements = {
+    'babel': '\\usepackage[polish]{babel}',
+    'inputenc': '',  # w nowszym LaTeX domyślnie UTF-8
+    'fontenc': '\\usepackage[T1]{fontenc}',
+    'utf8extra': '',
+}
+
+latex_documents = [
+    ('index', 'django_doc.tex', 'Dokumentacja Kodu',
+     'Daniel Pietruczyk, Franciszek Łajszczak, Kacper Malik, Ola Lewandowska', 'manual'),
+]
+
 
 language = 'pl'
 

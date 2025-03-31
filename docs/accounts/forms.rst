@@ -1,4 +1,4 @@
-forms.py
+accounts/forms.py
 ======================
 
 .. currentmodule:: accounts.forms

@@ -1,4 +1,4 @@
-urls.py
+accounts/urls.py
 ===========================
 
 .. automodule:: accounts.urls

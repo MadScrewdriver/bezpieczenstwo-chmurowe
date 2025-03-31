@@ -1,4 +1,4 @@
-tests.py
+accounts/tests.py
 =================
 
 .. currentmodule:: accounts.tests

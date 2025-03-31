@@ -1,4 +1,4 @@
-settings.py
+bezpieczenstwo_chmurowe/settings.py
 ================================
 
 .. automodule:: bezpieczenstwo_chmurowe.settings

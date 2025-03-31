@@ -1,4 +1,4 @@
-urls.py
+bezpieczenstwo_chmurowe/urls.py
 ===========
 
 .. automodule:: bezpieczenstwo_chmurowe.urls

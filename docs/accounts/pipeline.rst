@@ -1,4 +1,4 @@
-pipeline.py
+accounts/pipeline.py
 ========
 
 .. currentmodule:: accounts.pipeline
