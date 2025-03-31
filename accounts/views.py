@@ -127,6 +127,13 @@ class CustomLoginView(LoginView):
 
     Jeśli użytkownik jest już zalogowany, przekierowuje go na stronę profilu.
     """
+
+    def post(self, request, *args, **kwargs):
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.warning(f"POST data: {request.POST}")
+        return super().post(request, *args, **kwargs)
+
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return redirect('two_factor:profile')
