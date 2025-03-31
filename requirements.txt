@@ -85,7 +85,7 @@ sqlparse==0.5.3
 stack-data==0.6.3
 structlog==24.4.0
 tenacity==8.5.0
-tiktoken==0.4.0
+tiktoken
 tqdm==4.67.1
 traitlets==5.14.3
 typing_extensions==4.12.2
