@@ -157,7 +157,7 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 BASE_URL = os.getenv("BASE_URL")
-# CSRF_COOKIE_SECURE = True
-# CSRF_TRUSTED_ORIGINS = ['https://bezpieczenstwochmurowe.eu.pythonanywhere.com', 'bezpieczenstwochmurowe.eu.pythonanywhere.com']
-# SESSION_COOKIE_SECURE = True
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ['https://bezpieczenstwochmurowe.eu.pythonanywhere.com', 'bezpieczenstwochmurowe.eu.pythonanywhere.com']
+SESSION_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
