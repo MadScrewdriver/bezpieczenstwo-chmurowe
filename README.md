@@ -39,7 +39,7 @@ Otwórz przeglądarkę i wejdź na `http://localhost:8000`.
 cd docs
 make html
 ```
-Dokumentacja znajduje się w `docs/_build/html/index.html`.
+Zbudowana dokumentacja znajduje się w `docs/_build/html/index.html`.
 
 ## Licencja
 Projekt dostępny na licencji **MIT**. Szczegóły w pliku `LICENSE`.
