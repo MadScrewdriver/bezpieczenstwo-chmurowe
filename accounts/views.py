@@ -129,9 +129,6 @@ class CustomLoginView(LoginView):
     """
 
     def post(self, request, *args, **kwargs):
-        print("----------------------------")
-        print(f"POST data: {request.POST}")
-        print("----------------------------")
         return super().post(request, *args, **kwargs)
 
     def dispatch(self, request, *args, **kwargs):
